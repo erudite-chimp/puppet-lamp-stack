@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+echo "Installing git"
+apt-get install -y git
 
 echo "Installing node and npm"
 #Instructions as per https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager (Vagrant runs in root/sudo mode already)

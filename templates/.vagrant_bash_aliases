@@ -12,6 +12,7 @@ alias php_ini="sudo vi /etc/php5/apache2/php.ini"
 # Nice directory formatting
 alias ll='ls -al --color'
 
+alias root='cd /vagrant/webroot'
 
 alias my_shortcuts='echo "
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -22,5 +23,5 @@ alias my_shortcuts='echo "
    php_ini              - edit php configuration
    ll                   - detailed directory listing; equivalent to ls -al --color
 
-   trunk                - changes directory to ~vagrant/webroot
+   root                - changes directory to ~/vagrant/webroot
 "'
