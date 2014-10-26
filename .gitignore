@@ -1,5 +1,5 @@
 vagrant
 .vagrant
 .idea
-webroot
+webroot/*
 .DS_Store
