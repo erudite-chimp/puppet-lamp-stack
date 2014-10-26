@@ -15,7 +15,7 @@ npm install -g coffee-script
 npm install -g grunt-cli
 
 echo "Installing Yeoman"
-npm install -g yo
+npm install -g yo generator-wordpress
 
 echo "Installing compass support"
 gem update --system
