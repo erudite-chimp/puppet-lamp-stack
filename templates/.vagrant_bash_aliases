@@ -1,0 +1,85 @@
+####
+export ONE45_PLATFORM=~vagrant/platform_trunk
+export ONE45_PLATFORM_RELEASE=~vagrant/platform_release
+export ONE45_PLATFORM_PATCH=~vagrant/platform_patch
+export ONE45_PLATFORM_REPO=~vagrant/platform_repository
+
+alias trunk='cd $ONE45_PLATFORM'
+alias release='cd $ONE45_PLATFORM_RELEASE'
+alias cd_patch='cd $ONE45_PLATFORM_PATCH'
+
+# clear the symfony cache - this leaves you in your current directory!
+alias clearcache='./symfony/app/console cache:clear'
+alias warmcache="php ./symfony/app/console cache:warm"
+
+# generate doctrine entities
+alias generateentities='./symfony/app/console doctrine:generate:entities --no-backup '
+alias generatecore='generateentities One45CoreBundle'
+
+# switch databases
+alias switch_db='$ONE45_PLATFORM/build/switch_database.sh'
+
+# extract marked-up terms into xliff files
+alias extract_xliff="./symfony/bin/i18n/extract_xliff.sh ./symfony"
+
+# compile SASS into CSS
+alias compile_sass="./symfony/bin/compile_sass.sh"
+
+# alias to apache instance. Use to start, stop, or restart local server
+alias apache="sudo /usr/sbin/apache2ctl"
+
+# edit php.ini
+alias php_ini="sudo vi /etc/php5/apache2/php.ini"
+
+# view the parameters.client.ini  and the database_config.php file
+alias show_parameters= $ONE45_PLATFORM/build/show_parameters.sh
+
+# Nice directory formatting
+alias ll='ls -al'
+
+alias connect='perl $ONE45_PLATFORM/build/connect_to_database.sh'
+alias vsource='source ~vagrant/.bashrc'
+
+alias my_shortcuts='echo "
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++ VAGRANT SHORTCUTS                                                      ++
+++ These commands are meant to be run only from vagrant                   ++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++ UTILITIES                                                              ++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   apache               - start, stop, or restart apache instance
+   php_ini              - edit php configuration
+   ll                   - detailed directory listing; equivalent to ls -al
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++ SYMFONY SHORTCUTS                                                      ++
+++   - Use trunk, cd_patch, or release to change instance dirs            ++
+++   - All other shortcuts below require being run in instance dirs       ++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   clearcache           - clear the symfony cache of current dirs instance
+   compile_sass         - compiles SASS files into CSS
+   extract_xliff        - extracts marked-up symfony terms into XLIFF files
+   generatecore         - generates CoreBundle entities, removes all temp files
+   generateentities     - generates entities for the specified bundle
+
+   warmcache            - warms the symfony cache
+
+   trunk                - changes directory to ~vagrant/platform_trunk
+   cd_patch             - changes directory to ~vagrant/platform_patch
+   release              - changes directory to ~vagrant/patform_release
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++   DIRECTORY AGNOSTIC COMMANDS                                          ++
+++   - All these commands work from any directory                         ++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   connect [username]                    - sets up the ssh tunnel to the backup database
+   show_parameters [trunk|patch|release] - view the parameters.client.ini and database_config.php file of the designated repository
+                                           defaults to trunk dir if no args passed
+   switch_db [trunk|patch|release]       - switches database for the designated repository
+                                           defaults to trunk database if no args passed   
+   vsource                               - refresh your .bashrc file for any new commands
+"'
+
+my_shortcuts
