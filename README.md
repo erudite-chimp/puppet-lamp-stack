@@ -15,7 +15,7 @@ Credit must be given where credit is due. Most of this work was made possible by
 0. Insure Vagrant and Virutal Box are installed.
 1. Install precise32 Vagrant box. (If not installed already)
 
-        $ vagrant box add precise32 http://files.vagrantup.com/precise32.box
+        $ vagrant box add precise64 http://files.vagrantup.com/precise64.box
 
 2. Clone this repository.
 3. Create directory "webroot" in the root directory of the clone. This will act as your root web folder.
